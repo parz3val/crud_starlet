@@ -4,15 +4,18 @@ This is simple implementation of the CRUD application in starlette.
 
 >> Create, Rename, Update and Delete notes.
 
-
 ## To do
 
-[] Set up a skeleton
+:white_check_mark: Set up a skeleton
 
-[ ] Set up hooks for the pre commit commands
+:white_check_mark: Set up hooks for the pre commit commands
 
-[ ] Set up create endpoint for the notes.
+:white_check_mark: Set up create endpoint for the notes.
 
-[ ] Set up view endpoint for the notes
+:white_check_mark: Set up view endpoint for the notes
 
-[ ] Edit and update endpoint.
+:white_check_mark: Edit and update endpoint.
+
+:white_check_mark: Endpoint for the delete and note by ID.
+
+
