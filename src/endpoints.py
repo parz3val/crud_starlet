@@ -2,7 +2,6 @@
 # Imports
 from starlette.responses import JSONResponse, PlainTextResponse
 from db import create_notes_query, all_notes_query, del_note, edit_notes, note
-import asyncio
 
 
 # root
@@ -15,7 +14,7 @@ async def create_note(request):
     data = await request.json()
     title = data["title"]
     content = data["content"]
-    await create_notes_query(title,content)
+    await create_notes_query(title, content)
     return PlainTextResponse("Note created")
 
 
@@ -29,16 +28,16 @@ async def edit_note(request):
     # get content if it is provided
     try:
         _content = data["content"]
-    except:
+    except ValueError:
         _content = ""
 
     # get title if it is provided
     try:
         _title = data["title"]
-    except:
+    except ValueError:
         _title = ""
 
-    result: str = await edit_notes(note_id = _id, content = _content, title = _title)
+    result: str = await edit_notes(note_id=_id, content=_content, title=_title)
     return PlainTextResponse(result)
 
 
@@ -48,15 +47,15 @@ async def delete_note(request):
     result = await del_note(note_id)
     return PlainTextResponse(str(result))
 
-    
 
+# Returns all notes
 async def all_notes(request):
     data = await all_notes_query(request)
     return data
 
+
+# Returns note by ID
 async def note_by_id(request):
-        _id : int = int(request.path_params['note_id'])
-
-        result = await note(note_id = int(_id))
-
-        return result
+    _id: int = int(request.path_params['note_id'])
+    result = await note(note_id=int(_id))
+    return result
