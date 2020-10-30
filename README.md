@@ -18,4 +18,4 @@ This is simple implementation of the CRUD application in starlette.
 
 :white_check_mark: Endpoint for the delete and note by ID.
 
-:o: Tests
+:white_check_mark: Tests
